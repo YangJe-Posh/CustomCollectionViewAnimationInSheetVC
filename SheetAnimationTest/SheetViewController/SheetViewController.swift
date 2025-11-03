@@ -43,26 +43,10 @@ class SheetViewController: UIViewController {
         .systemGray,
     ]
 
-    var commonTestParameter: CollectionViewCellAnimationParameter {
-        let animationTypes: Set<PoshmarkCollectionCellAnimationType> = [
-            .opacity(animationOpacity: (starting: 0, finished: 1)),
-            .slide(animationSliding: (isToIdentity: true, direction: .vertical, amount: 50))
-        ]
-        return CollectionViewCellAnimationParameter(type: animationTypes, duration: 3, delay: 0, springWithDamping: 0.8, initialSpringVelocity: 0.3, options: .curveEaseOut)
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         setupUI()
-    }
-
-    static var commonTestParameter: CollectionViewCellAnimationParameter {
-        let animationTypes: Set<PoshmarkCollectionCellAnimationType> = [
-            .opacity(animationOpacity: (starting: 0, finished: 1)),
-            .slide(animationSliding: (isToIdentity: true, direction: .vertical, amount: 50))
-        ]
-        return CollectionViewCellAnimationParameter(type: animationTypes, duration: 3, delay: 0, springWithDamping: 0.8, initialSpringVelocity: 0.3, options: .curveEaseOut)
     }
 
     override func viewWillAppear(_ animated: Bool) {

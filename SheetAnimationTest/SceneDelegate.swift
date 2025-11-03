@@ -46,7 +46,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-
-
 }
 
+var commonTestParameter: CollectionViewCellAnimationParameter {
+    let animationTypes: Set<PoshmarkCollectionCellAnimationType> = [
+        .opacity(animationOpacity: (starting: 0, finished: 1)),
+        .slide(animationSliding: (isToIdentity: true, direction: .vertical, amount: 50))
+    ]
+    return CollectionViewCellAnimationParameter(type: animationTypes, duration: 3, delay: 0, springWithDamping: 0.8, initialSpringVelocity: 0.3, options: .curveEaseOut)
+}
