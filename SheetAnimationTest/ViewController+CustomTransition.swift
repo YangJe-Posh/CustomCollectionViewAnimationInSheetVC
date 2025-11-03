@@ -1,5 +1,5 @@
 //
-//  ViewController+Transition.swift
+//  ViewController+CustomTransition.swift
 //  SheetAnimationTest
 //
 //  Created by USER on 10/31/25.
@@ -141,14 +141,10 @@ class SheetPresentationAnimator: NSObject, UIViewControllerAnimatedTransitioning
             animations: {
                 // Slide sheet up
                 toView.transform = .identity
-
-                // Start cell animation simultaneously (by row)
-                let animationTypes: Set<PoshmarkCollectionCellAnimationType> = [
-                    .opacity(animationOpacity: (starting: 0, finished: 1)),
-                    .slide(animationSliding: (isToIdentity: true, direction: .vertical, amount: 500))
-                ]
-                let parameter = CollectionViewCellAnimationParameter(type: animationTypes, duration: 0.4, delay: 0, springWithDamping: 0.8, initialSpringVelocity: 0.3, options: .curveEaseOut)
-                toVC.collectionView.animateVisibleCellsByRow(parameter: parameter)
+                if toVC.type == .duringCustomTransition {
+                    // Start cell animation simultaneously (by row)
+                    toVC.collectionView.animateVisibleCellsByRow(parameter: SheetViewController.commonTestParameter)
+                }
             },
             completion: { finished in
                 transitionContext.completeTransition(finished)
