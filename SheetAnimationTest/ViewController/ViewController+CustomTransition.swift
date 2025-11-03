@@ -142,7 +142,7 @@ class SheetPresentationAnimator: NSObject, UIViewControllerAnimatedTransitioning
                 // Slide sheet up
                 toView.transform = .identity
                 if toVC.type == .duringCustomTransition {
-                    // Start cell animation simultaneously (by row)
+                    // TEST: Start cell animation simultaneously (by row)
                     toVC.collectionView.animateVisibleCellsByRow(parameter: commonTestParameter)
                 }
             },

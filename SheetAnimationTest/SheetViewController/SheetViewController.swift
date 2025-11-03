@@ -51,9 +51,9 @@ class SheetViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if type == .inDefualtSheetTransition {
-            collectionView.animateVisibleCells(parameter: commonTestParameter)
-        }
+        guard type == .inDefualtSheetTransition else { return }
+        // TEST: Start cell animation simultaneously (by row)
+        collectionView.animateVisibleCells(parameter: commonTestParameter)
     }
 
     private func setupUI() {
@@ -99,7 +99,9 @@ extension SheetViewController: UICollectionViewDataSource, UICollectionViewDeleg
     }
 
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-
+        guard type == .inDefualtSheetTransition else { return }
+        // TEST: animate separately
+//        collectionView.animate(cell: cell, parameter: commonTestParameter)
     }
 }
 
