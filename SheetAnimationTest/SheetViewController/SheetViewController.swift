@@ -71,6 +71,8 @@ class SheetViewController: UIViewController {
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
+
+    let numberOfCellInRow: Int = 3
 }
 
 // MARK: - UICollectionView DataSource & Delegate
@@ -87,7 +89,6 @@ extension SheetViewController: UICollectionViewDataSource, UICollectionViewDeleg
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let numberOfCellInRow: Int = 3
         // Calculate padding: left/right inset + spacing between cells
         let layout = collectionViewLayout as! UICollectionViewFlowLayout
         let leftRightInset = layout.sectionInset.left + layout.sectionInset.right

@@ -81,13 +81,15 @@ struct CollectionViewCellAnimationParameter {
 
 extension UICollectionView {
     func animate(cell: UIView, parameter: CollectionViewCellAnimationParameter) {
-        Task { @MainActor in
+        Task { @MainActor [weak self] in
+            guard let self else { return }
             performAnimation(view: cell, parameter: parameter)
         }
     }
 
     func animateVisibleCells(parameter: CollectionViewCellAnimationParameter) {
-        Task { @MainActor in
+        Task { @MainActor [weak self] in
+            guard let self else { return }
             // Force layout only with CATransaction, without animation
             CATransaction.begin()
             CATransaction.setDisableActions(true)
@@ -98,7 +100,8 @@ extension UICollectionView {
     }
 
     func animateVisibleCellsByRow(rowInterval: TimeInterval = 0.2, parameter: CollectionViewCellAnimationParameter) {
-        Task { @MainActor in
+        Task { @MainActor [weak self] in
+            guard let self else { return }
             let cellsByRow = getVisibleCellsByRow()
             // Force layout only with CATransaction, without animation
             CATransaction.begin()
