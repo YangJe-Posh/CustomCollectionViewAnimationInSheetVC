@@ -1,3 +1,5 @@
+![SimulatorScreenRecording480](https://github.com/YangJe-Posh/CustomCollectionViewAnimationInSheetVC/blob/main/SimulatorScreenRecording480.gif)
+
 # UICollectionView Animation Extension
 
 An extension that makes it easy to apply custom animations to UICollectionView cells.
